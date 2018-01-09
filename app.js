@@ -5,7 +5,10 @@ const bodyParser = require('body-parser');
 require('./models/Truck');
 
 // Aware this is bad practice, but I did it this way for activity convenience
-mongoose.connect('mongodb://draper:draperlab@ds247587.mlab.com:47587/icecream');
+mongoose
+  .connect('mongodb://draper:draperlab@ds247587.mlab.com:47587/icecream',
+  { useMongoClient: true }
+);
 
 const app = express();
 
