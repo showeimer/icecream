@@ -59,4 +59,15 @@ module.exports = app => {
     res.send(truck);
   });
 
+
+  // DELETE ENDPOINTS ============================================
+
+  app.delete('/api/trucks/:truckID', async (req, res) => {
+    try {
+      await Truck.findByIdAndRemove(req.params.truckID);
+      res.send(`Successfully removed ${req.params.truckID}`);
+    } catch (err) {
+      res.status(404).send(err);
+    }
+  });
 }

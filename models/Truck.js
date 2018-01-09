@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const IceCreamSchema = require('./IceCream');
 
 /*
 Originally when I created this model, I had a property for flavors which was going
