@@ -34,9 +34,9 @@ export class MapContainer extends Component {
             name={runnerNumber}
             title={`${runnerNumber}`}
             position={{ lat: location.lat, lng: location.lng }}
-            // icon={{
-            //   url: 'http://files.softicons.com/download/food-drinks-icons/free-food-icons-by-daily-overview/png/64x64/ice-cream.png',
-            // }}
+            icon={{
+              url: 'http://files.softicons.com/download/food-drinks-icons/cubes-icons-by-klukeart/png/64x64/Box_05.png',
+            }}
           />
         );
       });
