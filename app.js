@@ -14,14 +14,14 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// Have express serve client side assets
-app.use(express.static('client/build'));
-
-// Serve index.html file if route is not recognized by Express
-const path = require('path');
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-})
+// // Have express serve client side assets
+// app.use(express.static('client/build'));
+//
+// // Serve index.html file if route is not recognized by Express
+// const path = require('path');
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// })
 
 require('./routes/truckRoutes')(app);
 

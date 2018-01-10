@@ -9,7 +9,7 @@ to hard code in properties that reflect four different flavors as listed below.
 */
 const truckSchema = new Schema({
   truckNumber: Number,
-  location: String,
+  location: { lat: Number, lng: Number },
   strawberry: { type: Number, default: 100 },
   chocolate: { type: Number, default: 100 },
   vanilla: { type: Number, default: 100 },
