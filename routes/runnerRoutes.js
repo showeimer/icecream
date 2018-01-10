@@ -39,6 +39,13 @@ module.exports = app => {
 
   // UPDATE ENDPOINTS ================================================
 
+  // Update location of truck
+  app.put('/api/runners/:runnerID/relocate', async (req, res) => {
+    await Runner.updateOne({ _id: req.params.runnerID }, { location: req.body });
+    const runner = await Runner.findById(req.params.truckID);
+    res.send(runner);
+  });
+
 
   // DELETE ENDPOINTS ============================================
 

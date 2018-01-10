@@ -59,6 +59,13 @@ module.exports = app => {
     res.send(truck);
   });
 
+  // Update location of truck
+  app.put('/api/trucks/:truckID/relocate', async (req, res) => {
+    await Truck.updateOne({ _id: req.params.truckID }, { location: req.body });
+    const truck = await Truck.findById(req.params.truckID);
+    res.send(truck);
+  });
+
 
   // DELETE ENDPOINTS ============================================
 
@@ -70,4 +77,5 @@ module.exports = app => {
       res.status(404).send(err);
     }
   });
+
 }
