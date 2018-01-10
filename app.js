@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 require('./models/Truck');
+require('./models/Runner');
 
 // Aware this is bad practice, but I did it this way for activity convenience
 mongoose
