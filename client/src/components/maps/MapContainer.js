@@ -23,6 +23,27 @@ export class MapContainer extends Component {
     return trucks;
   }
 
+  renderRunnerMarkers() {
+    let runners = [];
+    if(this.props.runners.length) {
+      runners = this.props.runners.map(runner => {
+        const { runnerNumber, location, _id } = runner;
+        return (
+          <Marker
+            key={_id}
+            name={runnerNumber}
+            title={`${runnerNumber}`}
+            position={{ lat: location.lat, lng: location.lng }}
+            // icon={{
+            //   url: 'http://files.softicons.com/download/food-drinks-icons/free-food-icons-by-daily-overview/png/64x64/ice-cream.png',
+            // }}
+          />
+        );
+      });
+    }
+    return runners;
+  }
+
   render() {
     console.log(this.props);
     return (
@@ -33,6 +54,7 @@ export class MapContainer extends Component {
         initialCenter={{ lat: 42.364466, lng: -71.091272 }}
       >
         {this.renderTruckMarkers()}
+        {this.renderRunnerMarkers()}
       </Map>
     )
   }

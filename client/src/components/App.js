@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTrucks } from '../actions';
+import { fetchTrucks, fetchRunners } from '../actions';
 
 import MapContainer from './maps/MapContainer';
 import TruckDashboard from './TruckDashboard';
@@ -9,11 +9,12 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchTrucks();
+    this.props.fetchRunners();
   }
 
   renderGoogleMap() {
     if(this.props.trucks.length > 0) {
-      return <MapContainer trucks={this.props.trucks} />
+      return <MapContainer trucks={this.props.trucks} runners={this.props.runners} />
     } else {
       return <h3>Loading...</h3>
     }
@@ -31,8 +32,9 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log('state is',state);
   return {
-    trucks: state.trucks
+    trucks: state.trucks,
+    runners: state.runners
   }
 }
 
-export default connect(mapStateToProps, { fetchTrucks })(App);
+export default connect(mapStateToProps, { fetchTrucks, fetchRunners })(App);

@@ -7,9 +7,10 @@ module.exports = app => {
 
   // Create a new runner
   app.post('/api/runners', async (req, res) => {
+    console.log(req.body);
     const { runnerNumber, location } = req.body;
     const runner = new Runner({
-      truckNumber,
+      runnerNumber,
       location,
     });
 
@@ -42,7 +43,7 @@ module.exports = app => {
   // Update location of truck
   app.put('/api/runners/:runnerID/relocate', async (req, res) => {
     await Runner.updateOne({ _id: req.params.runnerID }, { location: req.body });
-    const runner = await Runner.findById(req.params.truckID);
+    const runner = await Runner.findById(req.params.runnerID);
     res.send(runner);
   });
 
