@@ -25,13 +25,13 @@ module.exports = app => {
 
   // READ ENDPOINTS ================================================
 
-  // Read all trucks in database
+  // Read all runners in database
   app.get('/api/runners', async (req, res) => {
     const runners = await Runner.find({});
     res.send(runners);
   });
 
-  // Read a specific truck in database
+  // Read a specific runner in database
   app.get('/api/runners/:runnerID', async (req, res) => {
     const runner = await Runner.findById(req.params.runnerID);
     res.send(runner);
@@ -40,7 +40,7 @@ module.exports = app => {
 
   // UPDATE ENDPOINTS ================================================
 
-  // Update location of truck
+  // Update location of runner
   app.put('/api/runners/:runnerID/relocate', async (req, res) => {
     await Runner.updateOne({ _id: req.params.runnerID }, { location: req.body });
     const runner = await Runner.findById(req.params.runnerID);
@@ -50,6 +50,7 @@ module.exports = app => {
 
   // DELETE ENDPOINTS ============================================
 
+  // Remove a runner
   app.delete('/api/runners/:runnerID', async (req, res) => {
     try {
       await Runner.findByIdAndRemove(req.params.runnerID);

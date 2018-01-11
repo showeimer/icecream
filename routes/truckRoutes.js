@@ -69,6 +69,7 @@ module.exports = app => {
 
   // DELETE ENDPOINTS ============================================
 
+  // Remove a truck
   app.delete('/api/trucks/:truckID', async (req, res) => {
     try {
       await Truck.findByIdAndRemove(req.params.truckID);

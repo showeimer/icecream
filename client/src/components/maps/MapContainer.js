@@ -7,14 +7,15 @@ export class MapContainer extends Component {
     let trucks = [];
     if(this.props.trucks.length) {
       trucks = this.props.trucks.map(truck => {
+        const { _id, truckNumber, location } = truck;
         return (
           <Marker
-            key={truck._id}
-            name={truck.truckNumber}
-            title={`${truck.truckNumber}`}
-            position={{ lat: truck.location.lat, lng: truck.location.lng }}
+            key={_id}
+            name={truckNumber}
+            title={`${truckNumber}`}
+            position={{ lat: location.lat, lng: location.lng }}
             icon={{
-              url: 'http://files.softicons.com/download/food-drinks-icons/free-food-icons-by-daily-overview/png/64x64/ice-cream.png',
+              url: 'http://files.softicons.com/download/art-icons/circus-icons-by-joker-design/png/48x48/ice%20cream.png',
             }}
           />
         );
@@ -35,7 +36,7 @@ export class MapContainer extends Component {
             title={`${runnerNumber}`}
             position={{ lat: location.lat, lng: location.lng }}
             icon={{
-              url: 'http://files.softicons.com/download/food-drinks-icons/cubes-icons-by-klukeart/png/64x64/Box_05.png',
+              url: 'http://files.softicons.com/download/food-drinks-icons/free-food-icons-by-daily-overview/png/48x48/ice-cream.png',
             }}
           />
         );
@@ -45,13 +46,13 @@ export class MapContainer extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Map
         google={this.props.google}
         zoom={13}
         style={{ width: '75%', height: '75%' }}
         initialCenter={{ lat: 42.364466, lng: -71.091272 }}
+        className={'map'}
       >
         {this.renderTruckMarkers()}
         {this.renderRunnerMarkers()}

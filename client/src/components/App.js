@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTrucks, fetchRunners } from '../actions';
+import '../App.css';
 
 import MapContainer from './maps/MapContainer';
 import TruckDashboard from './TruckDashboard';
@@ -23,14 +24,13 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        {this.renderGoogleMap()}
-      <TruckDashboard trucks={this.props.trucks} />
+          {this.renderGoogleMap()}
+        <TruckDashboard trucks={this.props.trucks} />
       </div>
     );
   }
 }
 const mapStateToProps = state => {
-  console.log('state is',state);
   return {
     trucks: state.trucks,
     runners: state.runners
